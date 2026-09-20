@@ -1,0 +1,32 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: lch
+      POSTGRES_PASSWORD: lch
+      POSTGRES_DB: lch_os
+    ports: ["5432:5432"]
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+
+  api:
+    build: { context: .., dockerfile: infra/docker/Dockerfile.api }
+    env_file: env/.env.development
+    ports: ["8000:8000"]
+    depends_on: [postgres, redis]
+
+  worker:
+    build: { context: .., dockerfile: infra/docker/Dockerfile.worker }
+    env_file: env/.env.development
+    depends_on: [postgres, redis]
+
+  dashboard:
+    build: { context: .., dockerfile: infra/docker/Dockerfile.dashboard }
+    ports: ["5173:80"]
+    depends_on: [api]
+
+volumes:
+  pgdata:
