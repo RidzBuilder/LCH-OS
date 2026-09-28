@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lch-os.dev/schemas/evidence.schema.json",
+  "title": "LCH-OS Canonical Evidence Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidence_id",
+    "evidence_version",
+    "evidence_class",
+    "subject_ref",
+    "claim_ref",
+    "source",
+    "observed_at",
+    "verification_status",
+    "limitations"
+  ],
+  "properties": {
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^EVD-ACL-[A-Z0-9-]+$"
+    },
+    "evidence_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "evidence_class": {
+      "enum": [
+        "E1_RUNTIME",
+        "E2_PROVIDER_ACK",
+        "E3_PLATFORM_OBSERVATION",
+        "E4_OPERATOR_ASSERTION",
+        "E5_INFERENCE",
+        "E6_EXTERNAL_ARTIFACT"
+      ]
+    },
+    "subject_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type",
+        "source_id"
+      ],
+      "properties": {
+        "source_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "run_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "test_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "occurred_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "received_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "digest": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "required": [
+        "algorithm",
+        "value"
+      ],
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "integrity_status": {
+      "enum": [
+        "UNVERIFIED",
+        "VALID",
+        "INVALID",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "authenticity_status": {
+      "enum": [
+        "UNVERIFIED",
+        "VERIFIED",
+        "FAILED",
+        "UNKNOWN"
+      ]
+    },
+    "verification_status": {
+      "enum": [
+        "VERIFIED",
+        "PARTIALLY_VERIFIED",
+        "UNVERIFIED",
+        "CONTRADICTED",
+        "EXPIRED",
+        "UNRESOLVED"
+      ]
+    },
+    "freshness_status": {
+      "enum": [
+        "CURRENT",
+        "STALE",
+        "UNKNOWN",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "correlation_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "supersedes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "protected_content_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}
