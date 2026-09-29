@@ -1,0 +1,48 @@
+{
+  "suite_id": "LCH-AR06-SMOKE-001",
+  "cases": [
+    {
+      "test_id": "SMOKE-PASS-001",
+      "executed": true,
+      "applicable": true,
+      "prerequisites_met": true,
+      "required_criteria": [
+        true,
+        true
+      ],
+      "required_evidence_sufficient": true,
+      "evidence_refs": [
+        "fixture://evidence/pass"
+      ]
+    },
+    {
+      "test_id": "SMOKE-FAIL-001",
+      "executed": true,
+      "applicable": true,
+      "prerequisites_met": true,
+      "required_criteria": [
+        true,
+        false
+      ],
+      "required_evidence_sufficient": true
+    },
+    {
+      "test_id": "SMOKE-BLOCKED-001",
+      "executed": true,
+      "applicable": true,
+      "prerequisites_met": false
+    },
+    {
+      "test_id": "SMOKE-UNTESTED-001",
+      "executed": false,
+      "applicable": true,
+      "prerequisites_met": true
+    },
+    {
+      "test_id": "SMOKE-NA-001",
+      "executed": false,
+      "applicable": false,
+      "not_applicable_basis_approved": true
+    }
+  ]
+}
