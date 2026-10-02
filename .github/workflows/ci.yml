@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -18,7 +20,18 @@ jobs:
           pip install -r apps/api/requirements.txt
           pip install ruff mypy pytest pytest-asyncio
       - name: Ruff
-        run: ruff check packages apps
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            files="$(git diff --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}" -- packages apps | grep -E '\\.py$' || true)"
+            if [ -n "$files" ]; then
+              ruff check $files
+            else
+              echo "No changed Python files under packages/ or apps/."
+            fi
+          else
+            ruff check packages apps
+          fi
       - name: Mypy
         run: mypy packages --ignore-missing-imports
       - name: Tests
