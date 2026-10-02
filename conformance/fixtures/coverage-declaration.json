@@ -1,0 +1,206 @@
+{
+  "coverage_id": "LCH-AR06-COVERAGE-001",
+  "coverage_type": "DECLARATION_ONLY",
+  "status": "NOT_TESTED",
+  "execution_mode": "NO_RUNTIME_EXECUTION",
+  "scenarios": [
+    {
+      "id": "S-01",
+      "label": "normal supervised live",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-02",
+      "label": "partial failures",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-03",
+      "label": "commerce",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-04",
+      "label": "operator takeover",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-05",
+      "label": "outage",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-06",
+      "label": "emergency stop",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-07",
+      "label": "expired auth",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-08",
+      "label": "consent revoke",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-09",
+      "label": "stale price/inventory",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-10",
+      "label": "duplicate audience events",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-11",
+      "label": "out-of-order audience events",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-12",
+      "label": "resource exhaustion",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-13",
+      "label": "provider outage",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-14",
+      "label": "conflicting leases",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-15",
+      "label": "accepted but playback unverified",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-16",
+      "label": "conflicting state",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-17",
+      "label": "configuration changes",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-18",
+      "label": "clock drift",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-19",
+      "label": "evidence corruption",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-20",
+      "label": "partial termination",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-21",
+      "label": "uncertain retry",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-22",
+      "label": "concurrent stop",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-23",
+      "label": "unauthorized fallback",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "S-24",
+      "label": "queue saturation",
+      "coverage_status": "NOT_TESTED"
+    }
+  ],
+  "invariants": [
+    {
+      "id": "INV-01",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-02",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-03",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-04",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-05",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-06",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-07",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-08",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-09",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-10",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-11",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-12",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-13",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-14",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-15",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-16",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-17",
+      "coverage_status": "NOT_TESTED"
+    },
+    {
+      "id": "INV-18",
+      "coverage_status": "NOT_TESTED"
+    }
+  ],
+  "limitations": [
+    "Coverage declaration confirms registry presence only.",
+    "It does not establish runtime conformance, evidence sufficiency, or PASS status."
+  ]
+}
