@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lch-os.dev/schemas/remediation.schema.json",
+  "title": "LCH-OS Remediation Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "remediation_id",
+    "originating_run_id",
+    "originating_result_id",
+    "affected_requirement_refs",
+    "failure_class",
+    "observed_condition",
+    "root_cause_status",
+    "remediation_action",
+    "responsible_role",
+    "verification_plan",
+    "exit_criteria",
+    "evidence_required",
+    "status"
+  ],
+  "properties": {
+    "remediation_id": {
+      "type": "string",
+      "pattern": "^REM-ACL-[A-Z0-9-]+$"
+    },
+    "originating_run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "originating_result_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "gap_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "affected_requirement_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "affected_invariant_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "failure_class": {
+      "enum": [
+        "FC-01",
+        "FC-02",
+        "FC-03",
+        "FC-04",
+        "FC-05",
+        "FC-06",
+        "FC-07",
+        "FC-08",
+        "FC-09",
+        "FC-10"
+      ]
+    },
+    "observed_condition": {
+      "type": "string",
+      "minLength": 1
+    },
+    "root_cause_status": {
+      "enum": [
+        "CONFIRMED",
+        "SUSPECTED",
+        "UNKNOWN"
+      ]
+    },
+    "remediation_action": {
+      "type": "string",
+      "minLength": 1
+    },
+    "responsible_role": {
+      "type": "string",
+      "minLength": 1
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risk_and_impact": {
+      "type": "string"
+    },
+    "verification_plan": {
+      "type": "string",
+      "minLength": 1
+    },
+    "exit_criteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_required": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "enum": [
+        "DETECTED",
+        "CLASSIFIED",
+        "DIAGNOSIS",
+        "ACTION_READY",
+        "IMPLEMENTED",
+        "RETEST_PENDING",
+        "REVIEW_PENDING",
+        "VERIFIED",
+        "REOPENED",
+        "BLOCKED"
+      ]
+    },
+    "supersedes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  }
+}
