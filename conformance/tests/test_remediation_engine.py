@@ -1,6 +1,6 @@
 import unittest
 
-from remediation_engine import generate_remediation
+from conformance.remediation_engine import generate_remediation
 
 
 class RemediationEngineTests(unittest.TestCase):
