@@ -16,8 +16,10 @@ from typing import Any
 
 try:
     from .result_semantics import EvaluationInput, evaluate_result
+    from .remediation_engine import generate_remediation
 except ImportError:  # pragma: no cover - direct script execution
     from result_semantics import EvaluationInput, evaluate_result
+    from remediation_engine import generate_remediation
 
 
 def utc_now() -> str:
@@ -77,6 +79,11 @@ def run_suite(fixture_path: Path, output_path: Path, baseline_id: str) -> dict[s
     counts: dict[str, int] = {}
     for result in results:
         counts[result["status"]] = counts.get(result["status"], 0) + 1
+    remediation_actions = [
+        action for result in results
+        for action in [generate_remediation(result)]
+        if action is not None
+    ]
     record = {
         "run_id": str(uuid.uuid4()),
         "baseline_id": baseline_id,
@@ -87,6 +94,7 @@ def run_suite(fixture_path: Path, output_path: Path, baseline_id: str) -> dict[s
         "result_count": len(results),
         "status_counts": counts,
         "results": results,
+        "remediation_actions": remediation_actions,
         "limitations": [
             "No live platform/provider execution occurred.",
             "Fixture-run status must not be represented as production conformance."
