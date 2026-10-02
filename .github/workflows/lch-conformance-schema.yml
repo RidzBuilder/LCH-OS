@@ -35,3 +35,9 @@ jobs:
         run: python -m unittest discover -s conformance/tests -v
       - name: Execute offline smoke fixture
         run: python conformance/runner.py --fixture conformance/fixtures/smoke-suite.json --output artifacts/conformance-smoke-run.json --baseline-id LCH-AR06-SMOKE-001
+      - name: Upload conformance evidence artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lch-conformance-smoke-run
+          path: artifacts/conformance-smoke-run.json
+          if-no-files-found: error
