@@ -26,14 +26,6 @@ def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
 
-def sha256_file(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as stream:
-        for chunk in iter(lambda: stream.read(65536), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
-
-
 def run_case(case: dict[str, Any], baseline_id: str, source_path: str) -> dict[str, Any]:
     facts = EvaluationInput(
         executed=bool(case.get("executed", False)),
