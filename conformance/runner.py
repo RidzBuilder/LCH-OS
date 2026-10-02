@@ -14,7 +14,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from result_semantics import EvaluationInput, evaluate_result
+try:
+    from .result_semantics import EvaluationInput, evaluate_result
+except ImportError:  # pragma: no cover - direct script execution
+    from result_semantics import EvaluationInput, evaluate_result
 
 
 def utc_now() -> str:
