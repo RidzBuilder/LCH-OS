@@ -3,9 +3,9 @@
 A matching digest establishes byte integrity relative to a supplied expected
 digest; it does not establish authorship, time, or truth of external events.
 """
+import hashlib
 from pathlib import Path
 from typing import Any
-import hashlib
 
 
 def verify_file(path: Path, expected_sha256: str | None = None) -> dict[str, Any]:
